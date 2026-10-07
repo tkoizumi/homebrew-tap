@@ -9,12 +9,15 @@ brew tap tkoizumi/tap
 brew install dsh-remote
 ```
 
-## Formulae
+Add `--cask` if you prefer to be explicit.
+
+## Casks
 
 ### dsh-remote
 
 One stable Tailscale URL for a locally running DeepSeek Harness (`dsh web`).
-Builds from source, so it works on both macOS and Linux (including Ubuntu).
+Installs a prebuilt static binary — no Go toolchain or build step — for macOS
+(Intel and Apple silicon) and Linux (including Ubuntu), on both amd64 and arm64.
 
 ```bash
 dsh-remote start     # launch DSH, the proxy, and Tailscale Serve; prints a QR code
@@ -33,6 +36,7 @@ sudo tailscale set --operator=$USER
 
 Funnel is never used: the service stays inside your tailnet.
 
-## Casks
+### otter
 
-- `otter` — published as a cask with prebuilt release binaries.
+Runtime for reliable Python jobs. Published as a cask with prebuilt release
+binaries.
