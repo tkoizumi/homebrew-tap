@@ -6,10 +6,25 @@ Personal Homebrew tap.
 
 ```bash
 brew tap tkoizumi/tap
+brew trust tkoizumi/tap
 brew install dsh-remote
 ```
 
 Add `--cask` if you prefer to be explicit.
+
+Homebrew refuses to load a formula or cask from a non-official tap until that tap
+is trusted, so `brew trust` is required once. Without it you get:
+
+```text
+Error: Refusing to load cask tkoizumi/tap/dsh-remote from untrusted tap tkoizumi/tap.
+```
+
+Trust decisions persist in `~/.homebrew/trust.json` (or under `$XDG_CONFIG_HOME`).
+To trust only this cask rather than the whole tap:
+
+```bash
+brew trust --cask tkoizumi/tap/dsh-remote
+```
 
 ## Casks
 
