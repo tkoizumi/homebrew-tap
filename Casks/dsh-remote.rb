@@ -33,8 +33,16 @@ cask "dsh-remote" do
   binary "dsh-remote"
 
   postflight do
-    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dsh-remote"]
+    # macOS only: clear the quarantine attribute so Gatekeeper does not block
+    # the binary. This mirrors Homebrew's OS.mac? check (RbConfig is core Ruby,
+    # so it cannot fail on constant lookup), and the cask DSL's system_command
+    # raises on failure, hence must_succeed: false -- a missing attribute, or an
+    # absent /usr/bin/xattr on Linux, must never fail the install.
+    xattr = "/usr/bin/xattr"
+    if RbConfig::CONFIG["host_os"].include?("darwin") && File.executable?(xattr)
+      system_command xattr,
+                     args:         ["-dr", "com.apple.quarantine", "#{staged_path}/dsh-remote"],
+                     must_succeed: false
     end
   end
 
