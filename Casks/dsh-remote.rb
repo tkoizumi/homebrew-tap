@@ -1,23 +1,23 @@
 cask "dsh-remote" do
-  version "0.1.8"
+  version "0.1.10"
 
   on_macos do
     on_arm do
-      sha256 "2a28d92c0471ad1d0ee66cb37cd6ab922dd60cbd87f67c5b497b6e522e58cd65"
+      sha256 "38ef49002fe29874cf42a620588c9e241576557c76f916fcca4f5f0abd8a77ec"
       url "https://github.com/tkoizumi/dsh-remote/releases/download/v#{version}/dsh-remote_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "c3af03fe30aaf329788aa3eec5924a7c88cd6434469930d7b298edbdef3908e3"
+      sha256 "9ac402b414585fb89045744389d68604258701d7514f92f26bb68d41ff264499"
       url "https://github.com/tkoizumi/dsh-remote/releases/download/v#{version}/dsh-remote_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "b83446cd49a7972084ef9da0b50090a119d0510eb3e82b1ec0ce61e5eef496f3"
+      sha256 "c39e6f26fc2621934b8df083da9d561f630c36103d79ebf8a37288c96a0a95fc"
       url "https://github.com/tkoizumi/dsh-remote/releases/download/v#{version}/dsh-remote_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "146563e31143b688d2ce1c891113ce35c01bb0a3a5e12ddecadcc10b15b1c751"
+      sha256 "16fc6761229dee13624a9a584b4b7a3938bcf03dd852299598ab5cfbb42b5532"
       url "https://github.com/tkoizumi/dsh-remote/releases/download/v#{version}/dsh-remote_#{version}_linux_amd64.tar.gz"
     end
   end
